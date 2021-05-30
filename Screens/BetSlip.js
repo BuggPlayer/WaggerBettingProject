@@ -1,5 +1,5 @@
-import React from 'react';
-import {Text, View} from 'react-native';
+import React, {useState} from 'react';
+import {Text, TouchableOpacity, View} from 'react-native';
 import Header from '../Components/Header';
 import {
   widthPercentageToDP as wp,
@@ -9,6 +9,8 @@ import SlipCard from '../Components/SlipCard';
 import Parlay from '../Components/Parlay';
 
 const BetSlip = () => {
+  const [single, setSingle] = useState(false);
+
   return (
     <View style={{flex: 1, backgroundColor: '#4D4D4D'}}>
       <View style={{backgroundColor: 'black'}}>
@@ -33,9 +35,10 @@ const BetSlip = () => {
             flexDirection: 'row',
             justifyContent: 'space-between',
           }}>
-          <View
+          <TouchableOpacity
+            onPress={() => setSingle(false)}
             style={{
-              backgroundColor: '#373737',
+              backgroundColor: single ? null : '#373737',
               borderColor: 'gray',
               borderWidth: 1,
               width: wp('43%'),
@@ -51,9 +54,12 @@ const BetSlip = () => {
               }}>
               SINGLE
             </Text>
-          </View>
-          <View
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => setSingle(true)}
             style={{
+              backgroundColor: single ?  '#373737':null,
+
               borderColor: 'gray',
               borderWidth: 1,
               width: wp('45%'),
@@ -69,14 +75,16 @@ const BetSlip = () => {
               }}>
               PARLAY
             </Text>
-          </View>
+          </TouchableOpacity>
         </View>
         <View>
-          <SlipCard />
+          {single && (
+            <View style={{marginVertical: 20}}>
+              <Parlay />
+            </View>
+          )}
 
-          <View style={{ marginVertical: 20}}>
-            <Parlay />
-          </View>
+          <SlipCard  single={single} />
         </View>
       </View>
     </View>

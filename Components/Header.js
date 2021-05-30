@@ -15,7 +15,7 @@ const Header = () => {
           flexDirection: 'row',
           justifyContent: 'space-between',
           marginHorizontal: wp('3%'),
-          marginVertical: hp('0.5%'),
+          // marginVertical: hp('0.5%'),
           alignItems:"center"
         }}>
         <Image

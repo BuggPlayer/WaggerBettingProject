@@ -6,7 +6,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const SlipCard = () => {
+const SlipCard = (props) => {
   return (
     <View
       style={{
@@ -16,6 +16,27 @@ const SlipCard = () => {
         paddingVertical: wp('4%'),
         paddingHorizontal: wp('3%'),
       }}>
+      {props?.single && (
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}>
+          <View style={{}}>
+            <Text style={{fontSize: hp('2'), color: 'white'}}>
+              Total Matches
+            </Text>
+          </View>
+          <View>
+            <Text
+              style={{fontSize: hp('2.4%'), margin: wp('1%'), color: 'white'}}>
+              0
+            </Text>
+          </View>
+        </View>
+      )}
+
       <View
         style={{
           flexDirection: 'row',

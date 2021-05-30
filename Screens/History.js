@@ -23,6 +23,7 @@ const History = () => {
           marginHorizontal: wp('5%'),
           //   paddingVertical: wp('4%'),
           //   paddingHorizontal: wp('3%'),
+          borderRadius:5
         }}>
         <View
           style={{
@@ -61,9 +62,12 @@ const History = () => {
           marginHorizontal: wp('5%'),
           //   paddingVertical: wp('4%'),
           //   paddingHorizontal: wp('3%'),
+         
+          borderRadius:5
         }}>
         <View
           style={{
+          
             flexDirection: 'row',
             justifyContent: 'space-between',
             marginHorizontal: wp('3%'),

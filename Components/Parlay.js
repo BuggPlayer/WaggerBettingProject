@@ -24,15 +24,18 @@ const Parlay = () => {
           <View>
             <TextInput
               placeholder="25"
+              
               placeholderTextColor="white"
               style={{
-                backgroundColor: 'gray',
-                width: wp('26%'),
-                height: hp('5.7%'),
+                backgroundColor: '#373737',
+                width: wp('24%'),
+                height: hp('5%'),
                 borderRadius: 10,
                 justifyContent: 'center',
                 alignItems: 'center',
                 fontSize: hp('2%'),
+                paddingHorizontal:wp("2%")
+              
               }}
             />
             <Text

@@ -1,5 +1,12 @@
-import React from 'react';
-import {ScrollView, Text, TextInput, View} from 'react-native';
+import React, {useState} from 'react';
+import {
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import {set} from 'react-native-reanimated';
 
 import {
   widthPercentageToDP as wp,
@@ -9,6 +16,22 @@ import SearchIcon from 'react-native-vector-icons/AntDesign';
 import Header from '../Components/Header';
 import SportBookCompo from '../Components/SportBookCompo';
 const SportBook = () => {
+  const [isVisible, setisVisible] = useState(0);
+  const data = [
+    {
+      id: 0,
+      title: 'MONEY LINE',
+    },
+    {
+      id: 1,
+      title: 'SPREAD',
+    },
+    {
+      id: 2,
+      title: 'TOTAL',
+    },
+  ];
+
   return (
     <View style={{backgroundColor: '#4D4D4D', flex: 1}}>
       <View style={{backgroundColor: 'black'}}>
@@ -49,23 +72,29 @@ const SportBook = () => {
             //   paddingVertical: hp('1.5%'),
             // paddingHorizontal: wp('5%'),
           }}>
-          <View
-            style={{
-              borderBottomWidth: 3,
-              borderBottomColor: 'red',
-              paddingHorizontal: wp('5%'),
-              paddingVertical: hp('1.5%'),
-            }}>
-            <Text style={{color: 'white'}}>MONEY LINE</Text>
-          </View>
-          <View
+          {data.map(item => {
+            return (
+              <TouchableOpacity
+                onPress={() => setisVisible(item.id)}
+                style={{
+                  borderBottomWidth: isVisible === item.id? 3:0,
+                  borderBottomColor: isVisible === item.id?  'red':null,
+                  paddingHorizontal: wp('5%'),
+                  paddingVertical: hp('1.5%'),
+                }}>
+                <Text style={{color: 'white'}}>{item.title}</Text>
+              </TouchableOpacity>
+            );
+          })}
+
+          {/* <View
             style={{paddingHorizontal: wp('5%'), paddingVertical: hp('1.5%')}}>
             <Text style={{color: 'white'}}>SPREAD</Text>
           </View>
           <View
             style={{paddingHorizontal: wp('5%'), paddingVertical: hp('1.5%')}}>
             <Text style={{color: 'white'}}>TOTAL</Text>
-          </View>
+          </View> */}
         </View>
         <ScrollView>
           {[1, 2, 3, 4, 4].map(item => {
